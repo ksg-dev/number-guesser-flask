@@ -10,11 +10,10 @@ def hello_world():
 def say_bye():
     return "Bye"
 
-@app.route("/username/<name>")
+# use <> for variables in route
+@app.route("/<name>")
 def greet(name):
-    return f"Hello {name}"
+    return f"Hello there {name}"
 
 if __name__ == "__main__":
-    app.run()
-
-greet()
+    app.run(debug=True)
