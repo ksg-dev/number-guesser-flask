@@ -9,7 +9,7 @@ class User:
 def is_authenticated(function):
     def wrapper(*args, **kwargs):
         if args[0].is_logged_in == True:
-            function()
+            function(args[0])
     return wrapper
 
 @is_authenticated
@@ -18,5 +18,6 @@ def create_blog_post(user):
 
 
 new_user = User("Sonni")
+new_user.is_logged_in = True
 create_blog_post(new_user)
 
